@@ -45,6 +45,15 @@ public enum KeyWordType {
 	EXP,
 	SQR,
 	CIRCLE, //画图函
+	ASIN,
+	ACOS,
+	FLOOR,
+	CEIL,
+	RINT,
+	ROUND,
+	TODEGREES,
+	TORADIANS,
+	RANDOM,
 	NONE
 	
 }

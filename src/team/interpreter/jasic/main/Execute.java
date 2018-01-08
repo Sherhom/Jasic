@@ -1,7 +1,9 @@
 package team.interpreter.jasic.main;
 
 import java.lang.reflect.Method;
+
 import team.interpreter.jasic.domain.KeyWordType;
+import team.interpreter.jasic.domain.Store;
 import team.interpreter.jasic.domain.WordType;
 
 import team.interpreter.jasic.utils.GetNextWordHelper;
@@ -17,7 +19,10 @@ public class Execute{
         GotoHelper.searchAllMarks(phelper, ghelper);
         //System.out.println(phelper.markLoc.toString());
         while (phelper.currentType != WordType.EOP.ordinal()) {
-        	executeonce(phelper,ghelper);
+            Store store = new Store().getStore();
+            if (store.isInput == false) {
+                executeonce(phelper,ghelper);
+            }
         }
     }
     
@@ -46,6 +51,7 @@ public class Execute{
     public String excludeCircle(ProgramHelper phelper,GetNextWordHelper ghelper, String helperName) {
     	if(phelper.currentType == WordType.MARK.ordinal()){
     		ghelper.jumpToNextLine(phelper);
+    		helperName = "";
     	}else if(phelper.currentType == WordType.FUNC.ordinal()){
     		helperName = "FunctionHelper";
     	}else if(phelper.currentWord.equals("let") || phelper.currentType == WordType.VARIABLE.ordinal()){

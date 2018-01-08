@@ -14,7 +14,7 @@ public class GetNextWordHelper {
 		//初始化
 		helper.getNextWordHelper();
 		
-		assert (helper.index>=0&&helper.index<helper.program.length):"程序的下标越界！";
+		//assert (helper.index>=0&&helper.index<helper.program.length):"程序的下标越界！";
 		//程序结束
 		if(helper.index == helper.program.length-1){
 			//结束程序

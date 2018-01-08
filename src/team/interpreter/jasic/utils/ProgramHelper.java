@@ -51,6 +51,10 @@ public class ProgramHelper {
 		return helper;
 	}
 	
+	public void setNull() {
+	    helper = null;
+	}
+	
 	public void getNextWordHelper(){
 		currentWord = "";
 		currentKey = KeyWordType.NONE.ordinal();

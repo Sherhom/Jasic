@@ -5,7 +5,7 @@ import team.interpreter.jasic.exception.FileNotTxtException;
 public class Client {
 
     public static void main(String[] args) {
-        String path = "D:\\java_project/test.txt";
+        String path = "D:\\java_project/for.txt";
     	//String path = "D:\\java_project/dowhile.txt";
         FileInput fi  = new FileInput();
         fi.setFile_path(path);

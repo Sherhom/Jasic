@@ -19,7 +19,7 @@ public class DoWhileHelper {
 		String s = ph.currentWord;
 		
 		double r_num = chelper.execute(ph, getNext);
-		boolHelper.getResult(l_num,s,r_num);
+		this.flag = boolHelper.getResult(l_num,s,r_num);
 		
 	}
 
@@ -47,7 +47,7 @@ public class DoWhileHelper {
 			//throwError("判断条件不符合语法");
 		}
 		
-		assert flag==false:"出错";
+		//assert flag==false:"出错";
 		if(flag){
 			ph.whileStack.push(this);
 			assert ph.whileStack.empty()==false:"do-while对象未放入栈中";

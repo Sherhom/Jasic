@@ -45,6 +45,15 @@ public class KeyWord {
 		keyWordMap.put("end", KeyWordType.END.ordinal());
 		keyWordMap.put("let", KeyWordType.LET.ordinal());
 		keyWordMap.put("else", KeyWordType.ELSE.ordinal());
+		keyWordMap.put("asin", KeyWordType.ASIN.ordinal());
+		keyWordMap.put("acos", KeyWordType.ACOS.ordinal());
+		keyWordMap.put("floor", KeyWordType.FLOOR.ordinal());
+		keyWordMap.put("ceil", KeyWordType.CEIL.ordinal());
+		keyWordMap.put("rint", KeyWordType.RINT.ordinal());
+		keyWordMap.put("round", KeyWordType.ROUND.ordinal());
+		keyWordMap.put("toDegrees", KeyWordType.TODEGREES.ordinal());
+		keyWordMap.put("toRadians", KeyWordType.TORADIANS.ordinal());
+		keyWordMap.put("random", KeyWordType.RANDOM.ordinal());
 	}
 	
 	public static synchronized KeyWord getKeyWord(){

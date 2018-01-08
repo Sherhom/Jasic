@@ -92,7 +92,7 @@ public class CalculateHelper {
     	
     }
     
-    String getString(ProgramHelper phelper,GetNextWordHelper ghelper){//得到一个数字表达式（不包括关系运算符）
+    String getString(ProgramHelper phelper,GetNextWordHelper ghelper) throws Exception{//得到一个数字表达式（不包括关系运算符）
     	
     	assert phelper!=null:"传入的参数phelper为null";
 		
@@ -106,7 +106,8 @@ public class CalculateHelper {
     	//此时的变量应该只能是变量名，而不能是number和string两种类型
     	
     	
-    	while(curType==WordType.NUMBER.ordinal()||curType==WordType.VARIABLE.ordinal()||is_exp_ch(operator)||operator==')'){
+    	while(curType==WordType.NUMBER.ordinal()||curType==WordType.VARIABLE.ordinal()||curType==WordType.FUNC.ordinal()||is_exp_ch(operator)||operator==')'){
+    		System.out.println("hhh"+phelper.currentWord);
     		if(curType==WordType.NUMBER.ordinal()){
     			sb.append(phelper.currentWord);
     			sb.append(",");
@@ -114,6 +115,10 @@ public class CalculateHelper {
     			double value=phelper.numberMap.get(curWord);
     			String s=Double.toString(value);
     			sb.append(s);
+    			sb.append(",");
+    		}else if(curType==WordType.FUNC.ordinal()){
+    			double ans = FunctionHelper.execute(phelper, ghelper);
+    			sb.append(ans);
     			sb.append(",");
     		}
     		else{
@@ -128,7 +133,7 @@ public class CalculateHelper {
 	
     }
     
-    String inToPos(String infix){//中缀转后缀
+    public String inToPos(String infix){//中缀转后缀
     	
     	Stack<Character> op_stack=new Stack<Character>();
     	StringBuffer posfix=new StringBuffer();
@@ -182,7 +187,7 @@ public class CalculateHelper {
     	
     }
     
-    double op_cal(double a,double b,char c){//根据运算符计算
+    public double op_cal(double a,double b,char c){//根据运算符计算
     	double ans=0;
     	switch (c) {
 		case '+':
@@ -254,7 +259,13 @@ public class CalculateHelper {
     
     public double execute(ProgramHelper phelper,GetNextWordHelper ghelper) throws CalculateSyntaxException{
     	   //计算后缀表达式
-    	String temp=getString(phelper,ghelper);
+    	String temp = null;
+		try {
+			temp = getString(phelper,ghelper);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	//System.out.println("测试一："+temp);
     	double ans=excuteString(temp);
     	return ans;

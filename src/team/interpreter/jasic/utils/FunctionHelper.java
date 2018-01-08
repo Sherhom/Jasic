@@ -14,7 +14,16 @@ public class FunctionHelper {
 	LOG,
 	EXP,
 	SQR,
-	CIRCLE
+	CIRCLE,
+	ASIN,
+	ACOS,
+	FLOOR,
+	CEIL,
+	RINT,
+	ROUND,
+	TODEGREES,
+	TORADIANS,
+	RANDOM
 	*/
 	
 	//计算数学函数值
@@ -82,7 +91,7 @@ public class FunctionHelper {
 			//计算函数值
 			result = MathMethod(phelper, ghelper);
 		}
-		ghelper.execute(phelper);
+		//ghelper.execute(phelper); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!和余康的let一起可能会出错！！！！！！
 		//System.out.println(phelper.currentWord);
 		System.out.println(result);
 		return result;
@@ -115,6 +124,39 @@ public class FunctionHelper {
 	}
 	public static double sqrFunc(double x){
 		return Math.sqrt(x);
+	}
+	public static double sinFunc(double x){
+		return Math.sin(x);
+	}
+	public static double cosFunc(double x){
+		return Math.cos(x);
+	}
+	public static double asinFunc(double x){
+		return Math.asin(x);
+	}
+	public static double acosFunc(double x){
+		return Math.acos(x);
+	}
+	public static double floor(double x){
+		return Math.floor(x);
+	}
+	public static double ceil(double x){
+		return Math.ceil(x);
+	}
+	public static double rint(double x){
+		return Math.rint(x);
+	}
+	public static double round(double x){
+		return Math.round(x);
+	}
+	public static double toDegrees(double angrad){
+		return Math.toDegrees(angrad);
+	}
+	public static double toRadians(double angdeg){
+		return Math.toRadians(angdeg);
+	}
+	public static double random(){
+		return Math.random();
 	}
 	
 }
